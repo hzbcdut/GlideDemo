@@ -1,4 +1,4 @@
-package hzb.cdut.com.glidedemo;
+package hzb.cdut.com.glidedemo.ui.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import com.bumptech.glide.RequestManager;
 
 import java.io.File;
 
+import hzb.cdut.com.glidedemo.R;
 import hzb.cdut.com.glidedemo.constant.Constant;
 import hzb.cdut.com.glidedemo.present.DownOnlyPresent;
 import hzb.cdut.com.glidedemo.present.DownloadView;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements DownloadView{
         iv = (ImageView) findViewById(R.id.iv);
 
         present = new DownOnlyPresent(this, this);
-        File file = FileUtil.createFile(this, "hzb");
+        File file = FileUtil.createFile("hzb");
         LogUtil.d(Constant.Debug, TAG + " --> 创建的文件的大小  file.length() =" + file.length());
     }
 

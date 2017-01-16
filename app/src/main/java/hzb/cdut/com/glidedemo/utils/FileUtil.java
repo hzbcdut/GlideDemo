@@ -1,6 +1,5 @@
 package hzb.cdut.com.glidedemo.utils;
 
-import android.content.Context;
 import android.os.Environment;
 
 import java.io.File;
@@ -22,12 +21,32 @@ public class FileUtil {
     }
 
     /**
+     * 获取一个资源文件目录
+     *
+     * @return
+     */
+    public static String getFile() {
+        if (isHasSdCard()) {
+            String path = Environment.getExternalStorageDirectory().getPath() + "/" + AppInfoUtil.getPackageName(App.getAppContext());
+            LogUtil.d(Constant.Debug, TAG + " --> path =" + path);
+
+            File files = new File(path);  //文件夹
+
+            if (!files.exists()) {
+                files.mkdirs();
+            }
+            return files.getPath();
+        }
+        return "";
+    }
+
+    /**
      * 创建一个文件
      *
      * @param fileName
      * @return
      */
-    public static File createFile(Context context, String fileName) {
+    public static File createFile(String fileName) {
         if (isHasSdCard()) {
             String path = Environment.getExternalStorageDirectory().getPath() + "/" + AppInfoUtil.getPackageName(App.getAppContext());
             LogUtil.d(Constant.Debug, TAG + " --> path =" + path);
