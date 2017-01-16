@@ -5,6 +5,7 @@ import android.os.Environment;
 
 import java.io.File;
 
+import hzb.cdut.com.glidedemo.App;
 import hzb.cdut.com.glidedemo.constant.Constant;
 
 /**
@@ -28,7 +29,7 @@ public class FileUtil {
      */
     public static File createFile(Context context, String fileName) {
         if (isHasSdCard()) {
-            String path = Environment.getExternalStorageDirectory().getPath() + "/" + AppInfoUtil.getPackageName(context);
+            String path = Environment.getExternalStorageDirectory().getPath() + "/" + AppInfoUtil.getPackageName(App.getAppContext());
             LogUtil.d(Constant.Debug, TAG + " --> path =" + path);
 
             File files = new File(path);  //文件夹
