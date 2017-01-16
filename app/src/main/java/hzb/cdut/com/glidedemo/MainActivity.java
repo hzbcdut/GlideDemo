@@ -9,25 +9,30 @@ import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.File;
 
-    ImageView iv;
+import hzb.cdut.com.glidedemo.constant.Constant;
+import hzb.cdut.com.glidedemo.present.DownOnlyPresent;
+import hzb.cdut.com.glidedemo.present.DownloadView;
+import hzb.cdut.com.glidedemo.utils.FileUtil;
+import hzb.cdut.com.glidedemo.utils.LogUtil;
+
+public class MainActivity extends AppCompatActivity implements DownloadView{
+    private static final String TAG = "MainActivity";
+
+    private ImageView iv;
+
+    private DownOnlyPresent present;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        iv = (ImageView) findViewById(R.id.iv);
 
-            iv= (ImageView) findViewById(R.id.iv);
-//        String imageUrl = "http://lscdn.r2games.com/uploads/moments/livestar/170113/131652044214compress";
-//        final String imageUrl = "https://lscdn.r2games.com/uploads/1609/261442319520.jpg";
-//        Glide.with(this).load(imageUrl).error(R.mipmap.ic_launcher).into(iv);  // 这样未显示
-
-//        iv.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                Glide.with(MainActivity.this).load(imageUrl).error(R.mipmap.ic_launcher).into(iv);  // 这样也未显示
-//            }
-//        });
+        present = new DownOnlyPresent(this, this);
+        File file = FileUtil.createFile(this, "hzb");
+        LogUtil.d(Constant.Debug, TAG + " --> 创建的文件的大小  file.length() =" + file.length());
     }
 
     @Override
@@ -46,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         DrawableRequestBuilder drawableRequestBuilder = requestManager.load(imageUrl);
 
         drawableRequestBuilder.into(iv);
+
+        present.download(imageUrl);
 
     }
 }
