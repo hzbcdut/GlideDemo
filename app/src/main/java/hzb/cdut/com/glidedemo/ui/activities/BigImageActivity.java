@@ -22,11 +22,21 @@ public class BigImageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 BigImageView bigImageView = (BigImageView) findViewById(R.id.big_image_viewer);
                 bigImageView.setProgressIndicator(new ProgressPieIndicator());
+//                bigImageView.showImage(
+//                        Uri.parse("http://img1.imgtn.bdimg.com/it/u=1520386803,778399414&fm=21&gp=0.jpg"),
+//                        Uri.parse("http://youimg1.c-ctrip.com/target/tg/773/732/734/7ca19416b8cd423f8f6ef2d08366b7dc.jpg"));
+
+                // 加载图片资源文件中的图片
+                Uri uri = resIdtoUri(R.mipmap.long_big_image);
                 bigImageView.showImage(
                         Uri.parse("http://img1.imgtn.bdimg.com/it/u=1520386803,778399414&fm=21&gp=0.jpg"),
-                        Uri.parse("http://youimg1.c-ctrip.com/target/tg/773/732/734/7ca19416b8cd423f8f6ef2d08366b7dc.jpg"));
+                        uri);
 
             }
         });
+    }
+
+    private Uri resIdtoUri(int resId) {
+        return Uri.parse("android.resource://" + getPackageName() + "/" + resId);
     }
 }
