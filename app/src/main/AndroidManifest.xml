@@ -21,8 +21,9 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="hzb.cdut.com.glidedemo.module.CustomCachingGlideModule"
-            android:value="cache"/>
+        <meta-data
+            android:name="hzb.cdut.com.glidedemo.module.CustomCachingGlideModule"
+            android:value="GlideModule" />
     </application>
 
 </manifest>
