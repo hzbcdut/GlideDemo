@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements DownloadView{
         Log.d("debug", "-->  requestManager.load(imageUrl) =" +  requestManager.load(imageUrl));
 
         // DrawableRequestBuilder是DrawableTypeRequest的父类
-        DrawableRequestBuilder drawableRequestBuilder = requestManager.load(imageUrl);
+        DrawableRequestBuilder drawableRequestBuilder = requestManager.load(R.mipmap.long_big_image);
 
         drawableRequestBuilder.into(iv);
 
