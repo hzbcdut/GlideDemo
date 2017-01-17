@@ -9,14 +9,9 @@ import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 
-import java.io.File;
-
 import hzb.cdut.com.glidedemo.R;
-import hzb.cdut.com.glidedemo.constant.Constant;
 import hzb.cdut.com.glidedemo.present.DownOnlyPresent;
 import hzb.cdut.com.glidedemo.present.DownloadView;
-import hzb.cdut.com.glidedemo.utils.FileUtil;
-import hzb.cdut.com.glidedemo.utils.LogUtil;
 
 public class MainActivity extends AppCompatActivity implements DownloadView{
     private static final String TAG = "MainActivity";
@@ -32,8 +27,6 @@ public class MainActivity extends AppCompatActivity implements DownloadView{
         iv = (ImageView) findViewById(R.id.iv);
 
         present = new DownOnlyPresent(this, this);
-        File file = FileUtil.createFile("hzb");
-        LogUtil.d(Constant.Debug, TAG + " --> 创建的文件的大小  file.length() =" + file.length());
     }
 
     @Override

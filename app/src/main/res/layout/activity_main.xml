@@ -10,8 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="hzb.cdut.com.glidedemo.ui.activities.MainActivity">
 
-
-    <ImageView
+    <uk.co.senab.photoview.PhotoView
         android:id="@+id/iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
