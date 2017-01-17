@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hzb.cdut.com.glidedemo">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -24,6 +24,8 @@
         <meta-data
             android:name="hzb.cdut.com.glidedemo.module.CustomCachingGlideModule"
             android:value="GlideModule" />
+
+        <activity android:name=".ui.activities.BigImageActivity"></activity>
     </application>
 
 </manifest>
